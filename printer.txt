@@ -1,0 +1,23 @@
+#pragma once
+using namespace std;
+
+class Printer
+{
+private:
+	int* JobId;
+	int* Pages;
+	int front;
+	int rear;
+	int count;
+	int capacity;
+public:
+	Printer(int maxsize);
+	~Printer();
+	void Enqueue(int jobid, int pages);
+	void Dequeue(int& jobid, int& pages);
+	bool isFull();
+	bool isEmpty();
+	void peek();
+	void display();
+	void totalPages();
+};
