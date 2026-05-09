@@ -1,0 +1,56 @@
+#include <iostream>
+#include "Printer.h"
+
+int main()
+{
+    Printer printer(10);
+    int choice;
+    do
+    {
+        cout << "\n--- Printer Queue Menu ---\n";
+        cout << "1. Add Print Job (Enqueue)\n";
+        cout << "2. Print/Remove Job (Dequeue)\n";
+        cout << "3. Show Next Job (Peek)\n";
+        cout << "4. Display All Jobs\n";
+        cout << "5. Show Total Pending Pages\n";
+        cout << "0. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+        {
+            int jobid, pages;
+            cout << "Enter Job ID: ";
+            cin >> jobid;
+            cout << "Enter number of pages: ";
+            cin >> pages;
+            printer.Enqueue(jobid, pages);
+            break;
+        }
+        case 2:
+        {
+            int jobid, pages;
+            printer.Dequeue(jobid, pages);
+            break;
+        }
+        case 3:
+            printer.peek();
+            break;
+        case 4:
+            printer.display();
+            break;
+        case 5:
+            printer.totalPages();
+            break;
+        case 0:
+            cout << "Exiting program." << endl;
+            break;
+        default:
+            cout << "Invalid choice. Try again." << endl;
+        }
+    } while (choice != 0);
+
+    return 0;
+}
